@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTech Solutions - Fast, Professional Computer Repair & IT Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 25px rgba(0,0,0,0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.9rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.2);
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><polygon fill="%23ffffff08" points="0,300 1000,300 1000,0 0,150"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            color: #3498db;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            line-height: 1.8;
+        }
+        
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #3498db;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .phone-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            color: #f39c12;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+            background: rgba(243, 156, 18, 0.1);
+            padding: 15px 30px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 80px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            counter-reset: stat-counter;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s;
+            border-top: 4px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .service-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: #3498db;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #7f8c8d;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: #3498db;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .author-info h5 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .author-info span {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            margin-top: 10px;
+        }
+        
+        .rating i {
+            color: #f39c12;
+        }
+        
+        /* Trust Indicators */
+        .trust-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .trust-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .trust-item {
+            padding: 2.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .trust-item i {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .trust-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(52, 152, 219, 0.3);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff20"/><circle cx="80" cy="40" r="3" fill="%23ffffff15"/><circle cx="40" cy="80" r="1" fill="%23ffffff25"/></svg>');
+        }
+        
+        .about-image i {
+            font-size: 120px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #7f8c8d;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .about-list li {
+            padding: 1rem 0;
+            padding-left: 3rem;
+            position: relative;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .about-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+            background: white;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .contact-item {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            min-width: 70px;
+            text-align: center;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #3498db;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .footer-section p {
+            line-height: 1.8;
+            color: #bdc3c7;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .animate-count {
+            animation: countUp 0.8s ease-out forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-indicators {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            /* Navigation */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+                flex-direction: column;
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .nav-links a {
+                padding: 15px 20px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+                padding: 10px;
+                border-radius: 8px;
+            }
+            
+            /* Hero Section */
+            .hero {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+                padding: 0 10px;
+            }
+            
+            .phone-number {
+                font-size: 2rem;
+                margin: 1.5rem 0;
+                padding: 12px 25px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 280px;
+                justify-content: center;
+                padding: 16px 30px;
+            }
+            
+            /* Stats Section */
+            .stats-section {
+                padding: 60px 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .stat-item {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            /* Services Section */
+            .services {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+                padding: 0 10px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+                margin: 0 10px;
+            }
+            
+            .service-icon {
+                font-size: 3.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .service-card p {
+                font-size: 1rem;
+            }
+            
+            /* Testimonials Section */
+            .testimonials {
+                padding: 80px 0;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 2rem;
+                margin: 0 10px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+            }
+            
+            /* Trust Section */
+            .trust-section {
+                padding: 60px 0;
+            }
+            
+            .trust-indicators {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .trust-item {
+                padding: 1.5rem;
+            }
+            
+            .trust-item i {
+                font-size: 2.5rem;
+            }
+            
+            .trust-item h4 {
+                font-size: 1.2rem;
+            }
+            
+            /* About Section */
+            .about {
+                padding: 80px 0;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .about-image {
+                height: 300px;
+                margin: 0 10px;
+            }
+            
+            .about-image i {
+                font-size: 80px;
+            }
+            
+            .about-text {
+                padding: 0 10px;
+            }
+            
+            .about-text h3 {
+                font-size: 2rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+            }
+            
+            .about-list li {
+                padding: 0.8rem 0;
+                padding-left: 2.5rem;
+                font-size: 1rem;
+            }
+            
+            .about-list li:before {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+            
+            /* Contact Section */
+            .contact {
+                padding: 80px 0;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .contact-form {
+                padding: 2.5rem;
+                margin: 0 10px;
+            }
+            
+            .contact-form h3 {
+                font-size: 1.7rem;
+            }
+            
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                padding: 1rem 10px;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.7rem;
+            }
+            
+            .contact-item {
+                padding: 1.5rem;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-icon {
+                font-size: 2rem;
+                min-width: 60px;
+                padding: 12px;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 60px 0 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+            
+            .footer-section h4 {
+                font-size: 1.2rem;
+            }
+            
+            .footer-section p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Header */
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .logo i {
+                padding: 6px;
+            }
+            
+            /* Hero Section */
+            .hero {
+                padding: 100px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .phone-number {
+                font-size: 1.6rem;
+                margin: 1rem 0;
+                padding: 10px 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+            
+            /* Stats Section */
+            .stats-section {
+                padding: 50px 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                padding: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-icon {
+                font-size: 2rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+            
+            /* Sections */
+            .services,
+            .testimonials,
+            .about,
+            .contact {
+                padding: 60px 0;
+            }
+            
+            .trust-section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            /* Services */
+            .services-grid {
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+                margin: 0 5px;
+            }
+            
+            .service-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            /* Trust Indicators */
+            .trust-indicators {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .trust-item {
+                padding: 1.2rem;
+            }
+            
+            .trust-item i {
+                font-size: 2rem;
+            }
+            
+            .trust-item h4 {
+                font-size: 1.1rem;
+            }
+            
+            /* Testimonials */
+            .testimonials-grid {
+                gap: 1.5rem;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+                margin: 0 5px;
+            }
+            
+            .testimonial-card::before {
+                font-size: 3rem;
+                top: -5px;
+                left: 15px;
+            }
+            
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            /* About Section */
+            .about-content {
+                gap: 2rem;
+            }
+            
+            .about-image {
+                height: 250px;
+                margin: 0 5px;
+            }
+            
+            .about-image i {
+                font-size: 60px;
+            }
+            
+            .about-text {
+                padding: 0 5px;
+            }
+            
+            .about-text h3 {
+                font-size: 1.7rem;
+            }
+            
+            .about-list li {
+                padding-left: 2rem;
+                font-size: 0.95rem;
+            }
+            
+            .about-list li:before {
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
+            
+            /* Contact Section */
+            .contact-content {
+                gap: 2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+                margin: 0 5px;
+            }
+            
+            .contact-form h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .form-group label {
+                font-size: 0.95rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .contact-info {
+                padding: 0.5rem 5px;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-item {
+                padding: 1.2rem;
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-icon {
+                font-size: 1.8rem;
+                min-width: 50px;
+                padding: 10px;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 50px 0 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: left;
+            }
+            
+            .footer-section h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .footer-section p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Floating WhatsApp Button */
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero h2 {
+                font-size: 1rem;
+            }
+            
+            .phone-number {
+                font-size: 1.4rem;
+                padding: 8px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card,
+            .testimonial-card,
+            .contact-form {
+                margin: 0;
+                border-radius: 15px;
+            }
+            
+            .about-image {
+                margin: 0;
+            }
+            
+            .contact-item {
+                padding: 1rem;
+            }
+            
+            .floating-whatsapp {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                SmartTech Solutions
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#about"><i class="fas fa-user-tie"></i> About</a></li>
+                <li><a href="#testimonials"><i class="fas fa-comments"></i> Reviews</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Expert Computer Repair & IT Solutions</h1>
+                <h2>Professional Service You Can Trust</h2>
+                <p>Certified Computer Professionals providing comprehensive IT support for individuals and businesses. From virus removal to network setup, we deliver reliable solutions with a satisfaction guarantee.</p>
+                
+                <div class="phone-number">
+                    <i class="fas fa-phone-alt"></i> 0727532791
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-stethoscope"></i>
+                        Free Diagnostic
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-list-check"></i>
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="850">0</div>
+                    <div class="stat-label">Satisfied Customers</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-label">Repairs Completed</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">% Same-Day Service</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="stat-number" data-count="450">0</div>
+                    <div class="stat-label">Virus Removals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Professional IT Services</h2>
+            <p class="section-subtitle animate-on-scroll">Comprehensive technology solutions backed by expertise and guaranteed results</p>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Computer Repair & Optimization</h3>
+                    <p>Expert diagnosis and repair of hardware issues, system optimization, and performance enhancement. We restore your computer to peak performance with guaranteed results.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Malware & Security Solutions</h3>
+                    <p>Complete virus removal, malware detection, and comprehensive security setup. Protect your data and privacy with enterprise-level security solutions.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Network Setup & Support</h3>
+                    <p>Professional network installation, WiFi optimization, and connectivity troubleshooting. Reliable internet solutions for home and business environments.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Recovery & Backup</h3>
+                    <p>Advanced data recovery from failed drives and comprehensive backup solutions. Protect your valuable data with professional-grade recovery services.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business IT Consulting</h3>
+                    <p>Complete IT infrastructure planning, security audits, and system administration. Strategic technology solutions to drive your business forward.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Remote Technical Support</h3>
+                    <p>Convenient remote assistance for software issues, system updates, and technical guidance. Professional support accessible from anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">What Our Customers Say</h2>
+            <p class="section-subtitle animate-on-scroll">Real reviews from satisfied customers who trust SmartTech Solutions</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">Excellent service! My laptop was completely infected with malware and running incredibly slow. SmartTech cleaned it up perfectly and now it runs like new. Very professional and reasonably priced.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h5>Mary Kiprotich</h5>
+                            <span>Small Business Owner</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">Outstanding data recovery service! I thought I had lost all my important business files when my hard drive crashed. SmartTech recovered everything and set up a proper backup system. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JO</div>
+                        <div class="author-info">
+                            <h5>John Ochieng</h5>
+                            <span>Accountant</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">Professional and efficient! They set up our office network perfectly and provided training for our staff. The remote support service has been invaluable for our daily operations.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SA</div>
+                        <div class="author-info">
+                            <h5>Sarah Akinyi</h5>
+                            <span>Office Manager</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll" style="color: white;">Why Choose SmartTech Solutions?</h2>
+            <div class="trust-indicators">
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Certified Computer Professionals</h4>
+                    <p>Professional qualifications and ongoing education in latest technologies</p>
+                </div>
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Licensed & Insured</h4>
+                    <p>Full professional insurance and licensing for your complete protection</p>
+                </div>
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-clock"></i>
+                    <h4>Same-Day Service</h4>
+                    <p>98% of repairs completed within 24 hours of diagnosis</p>
+                </div>
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-shield-check"></i>
+                    <h4>30-Day Guarantee</h4>
+                    <p>Comprehensive warranty on all repairs and services</p>
+                </div>
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-globe"></i>
+                    <h4>Local & Remote Service</h4>
+                    <p>Flexible service options including on-site and remote support</p>
+                </div>
+                <div class="trust-item animate-on-scroll">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h4>Transparent Pricing</h4>
+                    <p>No hidden fees - clear quotes before any work begins</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h3>Your Trusted Technology Partner</h3>
+                    <p>As a certified Computer Professionals with over 5 years of hands-on experience, I've successfully helped over 850 customers solve their technology challenges. From simple virus removals to complex network installations, I bring both technical expertise and genuine care for customer satisfaction.</p>
+                    
+                    <h4><i class="fas fa-medal"></i> Professional Credentials & Experience:</h4>
+                    <ul class="about-list">
+                        <li>Computer Science Professionals with specialized IT certifications</li>
+                        <li>Over 1,200 successful computer repairs and optimizations</li>
+                        <li>Expert in data recovery with 95% success rate</li>
+                        <li>Certified in network security and system administration</li>
+                        <li>5+ years serving Nairobi and surrounding areas</li>
+                        <li>Specialized training in business IT infrastructure</li>
+                    </ul>
+                    
+                    <p><strong>My Commitment:</strong> Every customer deserves honest, reliable service at fair prices. I take time to explain technical issues in simple terms and provide practical solutions that prevent future problems. My 30-day guarantee and 98% customer satisfaction rate reflect my dedication to excellence.</p>
+                    
+                    <p><strong>Service Philosophy:</strong> Technology should make your life easier, not harder. Whether you're a student, professional, or business owner, I'm here to ensure your technology works reliably so you can focus on what matters most to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Get Your Free Diagnostic Today</h2>
+            <p class="section-subtitle animate-on-scroll">Ready to solve your computer problems? Contact us for professional IT support!</p>
+            <div class="contact-content">
+                <div class="contact-form animate-on-scroll">
+                    <h3><i class="fas fa-paper-plane"></i> Request Service</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service"><i class="fas fa-cog"></i> Service Required</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="computer-repair">Computer Repair & Optimization</option>
+                                <option value="virus-removal">Malware & Virus Removal</option>
+                                <option value="data-recovery">Data Recovery & Backup</option>
+                                <option value="network-setup">Network Setup & Support</option>
+                                <option value="business-support">Business IT Support</option>
+                                <option value="remote-support">Remote Technical Support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="urgency"><i class="fas fa-exclamation-triangle"></i> Urgency Level</label>
+                            <select id="urgency" name="urgency">
+                                <option value="normal">Normal (24-48 hours)</option>
+                                <option value="same-day">Same Day Service</option>
+                                <option value="emergency">Emergency (ASAP)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="problem"><i class="fas fa-comment-alt"></i> Describe Your Issue</label>
+                            <textarea id="problem" name="problem" rows="5" placeholder="Please describe your computer problem in detail. Include any error messages, when the problem started, and what you were doing when it occurred..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Request
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info animate-on-scroll">
+                    <h3><i class="fas fa-address-book"></i> Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        <div>
+                            <h4>Primary Phone</h4>
+                            <p><strong>0727532791</strong></p>
+                            <small>Call, SMS, or WhatsApp - Available 8AM-8PM daily</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <div>
+                            <h4>Email Support</h4>
+                            <p><strong>smarttech335@gmail.com</strong></p>
+                            <small>Professional email support - Response within 2 hours</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        <div>
+                            <h4>Service Areas</h4>
+                            <p><strong>Kabarnet & Surrounding Areas</strong></p>
+                            <small>On-site service available + Remote support worldwide</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </span>
+                        <div>
+                            <h4>Service Hours</h4>
+                            <p><strong>Monday - Sunday: 8AM - 8PM</strong></p>
+                            <small>Emergency service available 24/7 with additional charges</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </span>
+                        <div>
+                            <h4>Payment Options</h4>
+                            <p><strong>Cash, M-Pesa, Bank Transfer</strong></p>
+                            <small>Flexible payment terms for business customers</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-shield-check"></i> SmartTech Solutions</h4>
+                    <p><i class="fas fa-laptop-code"></i> Professional Computer Repair & IT Services</p>
+                    <p><i class="fas fa-graduation-cap"></i> Certified Computer Professionals</p>
+                    <p><i class="fas fa-users"></i> Serving 850+ satisfied customers since 2019</p>
+                    <p><strong><i class="fas fa-certificate"></i> Licensed & Insured</strong></p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Quick Contact</h4>
+                    <p><strong><i class="fas fa-phone"></i> Phone:</strong> 0727532791</p>
+                    <p><strong><i class="fas fa-envelope"></i> Email:</strong> smarttech335@gmail.com</p>
+                    <p><strong><i class="fas fa-clock"></i> Response Time:</strong> Within 2 hours</p>
+                    <p><strong><i class="fas fa-globe"></i> Service:</strong> Local & Remote Available</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-chart-line"></i> Service Statistics</h4>
+                    <p><i class="fas fa-check-circle"></i> 850+ Satisfied Customers</p>
+                    <p><i class="fas fa-check-circle"></i> 1,200+ Successful Repairs</p>
+                    <p><i class="fas fa-check-circle"></i> 98% Same-Day Service Rate</p>
+                    <p><i class="fas fa-check-circle"></i> 30-Day Service Guarantee</p>
+                    <p><i class="fas fa-check-circle"></i> 5+ Years Experience</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-wrench"></i> Our Services</h4>
+                    <p><i class="fas fa-laptop-medical"></i> Computer Repair & Optimization</p>
+                    <p><i class="fas fa-shield-virus"></i> Virus & Malware Removal</p>
+                    <p><i class="fas fa-database"></i> Data Recovery & Backup</p>
+                    <p><i class="fas fa-wifi"></i> Network Setup & Support</p>
+                    <p><i class="fas fa-briefcase"></i> Business IT Consulting</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #34495e; padding-top: 30px; margin-top: 40px;">
+                <p>&copy; 2025 SmartTech Solutions. All rights reserved.</p>
+                <p><strong>Professional Computer Scientist | Licensed & Insured | 30-Day Guarantee</strong></p>
+                <p>Trusted by 850+ customers across Kenya </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.ceil(current) + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+                    }
+                }, 20);
+            });
+        }
+
+        // Form submission with enhanced messaging
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+            const service = formData.get('service');
+            const urgency = formData.get('urgency');
+            const problem = formData.get('problem');
+            
+            // Create comprehensive WhatsApp message
+            const message = `🔧 *IT SUPPORT REQUEST* 🔧
+
+👤 *Customer Details:*
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+
+💻 *Service Required:*
+${service || 'General IT Support'}
+
+⏰ *Urgency Level:*
+${urgency || 'Normal'}
+
+📝 *Problem Description:*
+${problem || 'Details to be discussed'}
+
+---
+Please contact me to schedule a FREE diagnostic. I understand you offer:
+✅ 30-Day Guarantee
+✅ Same-Day Service Available
+✅ Professional Computer Scientist
+✅ 850+ Satisfied Customers
+
+Looking forward to your professional service!`;
+            
+            const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
+            
+            // Show enhanced confirmation
+            alert(`Thank you ${name}! 
+
+Your service request has been prepared. You'll now be redirected to WhatsApp to send your details directly to our Computer Scientist.
+
+📱 Expected Response Time: Within 2 hours
+🔧 Free Diagnostic: Yes, always!
+⭐ Our Promise: Professional service with 30-day guarantee
+
+Click OK to continue to WhatsApp...`);
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger counter animation for stats
+                    if (entry.target.classList.contains('stat-item')) {
+                        setTimeout(() => {
+                            animateCounters();
+                        }, 500);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 37, 47, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+                header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.3)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a252f 0%, #2c3e50 100%)';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 25px rgba(0,0,0,0.3)';
+            }
+        });
+
+        // Click to call functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make phone numbers clickable
+            const phoneNumbers = document.querySelectorAll('.phone-number');
+            phoneNumbers.forEach(phone => {
+                phone.style.cursor = 'pointer';
+                phone.addEventListener('click', function() {
+                    window.location.href = 'tel:0727532791';
+                });
+            });
+        });
+
+        // Enhanced service card interactions
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderTop = '4px solid #3498db';
+                this.querySelector('.service-icon').style.transform = 'scale(1.1)';
+                this.querySelector('.service-icon').style.color = '#2980b9';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderTop = '4px solid #3498db';
+                this.querySelector('.service-icon').style.transform = 'scale(1)';
+                this.querySelector('.service-icon').style.color = '#3498db';
+            });
+        });
+
+        // Enhanced floating action button for WhatsApp
+        const fab = document.createElement('div');
+        fab.innerHTML = `
+            <i class="fab fa-whatsapp"></i>
+            <span style="position: absolute; top: -45px; right: 0; background: #25d366; color: white; padding: 8px 12px; border-radius: 20px; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Quick WhatsApp</span>
+        `;
+        fab.style.cssText = `
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25d366, #20b358);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        `;
+        
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+                50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+                100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        fab.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.15)';
+            this.style.boxShadow = '0 12px 35px rgba(37, 211, 102, 0.6)';
+            this.querySelector('span').style.opacity = '1';
+        });
+        
+        fab.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
+            this.querySelector('span').style.opacity = '0';
+        });
+        
+        fab.addEventListener('click', function() {
+            const message = `👋 Hi SmartTech Solutions!
+
+I found your website and I'm impressed with your professional service:
+✅ 850+ Satisfied Customers
+✅ Certified Computer Professionals 
+✅ 30-Day Guarantee
+✅ Same-Day Service
+
+I need IT support and would like to discuss my requirements. Can you help me?`;
+            
+            const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+        
+        document.body.appendChild(fab);
+
+        // Add professional loading effect
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
