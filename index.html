@@ -1748,64 +1748,73 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number[data-count]');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.ceil(current) + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
-                    }
-                }, 20);
-            });
-        }
-
-        // Form submission with enhanced messaging
-        document.querySelector('form').addEventListener('submit', function(e) {
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+
+    // Auto-close mobile menu on link click (for small screens)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Counter animation
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-count]');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const increment = target / 100;
+            let current = 0;
             
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const email = formData.get('email');
-            const service = formData.get('service');
-            const urgency = formData.get('urgency');
-            const problem = formData.get('problem');
-            
-            // Create comprehensive WhatsApp message
-            const message = `🔧 *IT SUPPORT REQUEST* 🔧
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = target + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.ceil(current) + (counter.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+                }
+            }, 20);
+        });
+    }
+
+    // Form submission with enhanced messaging
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const email = formData.get('email');
+        const service = formData.get('service');
+        const urgency = formData.get('urgency');
+        const problem = formData.get('problem');
+        
+        // Create comprehensive WhatsApp message
+        const message = `🔧 *IT SUPPORT REQUEST* 🔧
 
 👤 *Customer Details:*
 Name: ${name}
@@ -1829,11 +1838,11 @@ Please contact me to schedule a FREE diagnostic. I understand you offer:
 ✅ 850+ Satisfied Customers
 
 Looking forward to your professional service!`;
-            
-            const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
-            
-            // Show enhanced confirmation
-            alert(`Thank you ${name}! 
+        
+        const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
+        
+        // Show enhanced confirmation
+        alert(`Thank you ${name}! 
 
 Your service request has been prepared. You'll now be redirected to WhatsApp to send your details directly to our Computer Scientist.
 
@@ -1842,132 +1851,132 @@ Your service request has been prepared. You'll now be redirected to WhatsApp to 
 ⭐ Our Promise: Professional service with 30-day guarantee
 
 Click OK to continue to WhatsApp...`);
-            
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Reset form
-            this.reset();
-        });
+        
+        // Open WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // Reset form
+        this.reset();
+    });
 
-        // Enhanced scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    // Enhanced scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Trigger counter animation for stats
-                    if (entry.target.classList.contains('stat-item')) {
-                        setTimeout(() => {
-                            animateCounters();
-                        }, 500);
-                    }
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Trigger counter animation for stats
+                if (entry.target.classList.contains('stat-item')) {
+                    setTimeout(() => {
+                        animateCounters();
+                    }, 500);
                 }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enhanced header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 37, 47, 0.95)';
-                header.style.backdropFilter = 'blur(15px)';
-                header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.3)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1a252f 0%, #2c3e50 100%)';
-                header.style.backdropFilter = 'none';
-                header.style.boxShadow = '0 2px 25px rgba(0,0,0,0.3)';
             }
         });
+    }, observerOptions);
 
-        // Click to call functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make phone numbers clickable
-            const phoneNumbers = document.querySelectorAll('.phone-number');
-            phoneNumbers.forEach(phone => {
-                phone.style.cursor = 'pointer';
-                phone.addEventListener('click', function() {
-                    window.location.href = 'tel:0727532791';
-                });
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Enhanced header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(26, 37, 47, 0.95)';
+            header.style.backdropFilter = 'blur(15px)';
+            header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.3)';
+        } else {
+            header.style.background = 'linear-gradient(135deg, #1a252f 0%, #2c3e50 100%)';
+            header.style.backdropFilter = 'none';
+            header.style.boxShadow = '0 2px 25px rgba(0,0,0,0.3)';
+        }
+    });
+
+    // Click to call functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make phone numbers clickable
+        const phoneNumbers = document.querySelectorAll('.phone-number');
+        phoneNumbers.forEach(phone => {
+            phone.style.cursor = 'pointer';
+            phone.addEventListener('click', function() {
+                window.location.href = 'tel:0727532791';
             });
         });
+    });
 
-        // Enhanced service card interactions
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.borderTop = '4px solid #3498db';
-                this.querySelector('.service-icon').style.transform = 'scale(1.1)';
-                this.querySelector('.service-icon').style.color = '#2980b9';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.borderTop = '4px solid #3498db';
-                this.querySelector('.service-icon').style.transform = 'scale(1)';
-                this.querySelector('.service-icon').style.color = '#3498db';
-            });
+    // Enhanced service card interactions
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.borderTop = '4px solid #3498db';
+            this.querySelector('.service-icon').style.transform = 'scale(1.1)';
+            this.querySelector('.service-icon').style.color = '#2980b9';
         });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.borderTop = '4px solid #3498db';
+            this.querySelector('.service-icon').style.transform = 'scale(1)';
+            this.querySelector('.service-icon').style.color = '#3498db';
+        });
+    });
 
-        // Enhanced floating action button for WhatsApp
-        const fab = document.createElement('div');
-        fab.innerHTML = `
-            <i class="fab fa-whatsapp"></i>
-            <span style="position: absolute; top: -45px; right: 0; background: #25d366; color: white; padding: 8px 12px; border-radius: 20px; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Quick WhatsApp</span>
-        `;
-        fab.style.cssText = `
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #25d366, #20b358);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        `;
-        
-        // Add pulse animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pulse {
-                0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
-                50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
-                100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        fab.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.15)';
-            this.style.boxShadow = '0 12px 35px rgba(37, 211, 102, 0.6)';
-            this.querySelector('span').style.opacity = '1';
-        });
-        
-        fab.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
-            this.querySelector('span').style.opacity = '0';
-        });
-        
-        fab.addEventListener('click', function() {
-            const message = `👋 Hi SmartTech Solutions!
+    // Enhanced floating action button for WhatsApp
+    const fab = document.createElement('div');
+    fab.innerHTML = `
+        <i class="fab fa-whatsapp"></i>
+        <span style="position: absolute; top: -45px; right: 0; background: #25d366; color: white; padding: 8px 12px; border-radius: 20px; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Quick WhatsApp</span>
+    `;
+    fab.style.cssText = `
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(135deg, #25d366, #20b358);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+    `;
+    
+    // Add pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    fab.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.15)';
+        this.style.boxShadow = '0 12px 35px rgba(37, 211, 102, 0.6)';
+        this.querySelector('span').style.opacity = '1';
+    });
+    
+    fab.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
+        this.querySelector('span').style.opacity = '0';
+    });
+    
+    fab.addEventListener('click', function() {
+        const message = `👋 Hi SmartTech Solutions!
 
 I found your website and I'm impressed with your professional service:
 ✅ 850+ Satisfied Customers
@@ -1976,21 +1985,22 @@ I found your website and I'm impressed with your professional service:
 ✅ Same-Day Service
 
 I need IT support and would like to discuss my requirements. Can you help me?`;
-            
-            const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        });
         
-        document.body.appendChild(fab);
+        const whatsappUrl = `https://wa.me/254727532791?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+    
+    document.body.appendChild(fab);
 
-        // Add professional loading effect
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-    </script>
+    // Add professional loading effect
+    window.addEventListener('load', function() {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+</script>
+
 </body>
 </html>
